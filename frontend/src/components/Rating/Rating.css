@@ -1,0 +1,8 @@
+.Rating {
+  display: flex;
+  gap: 2px;
+}
+
+.star:hover {
+  color: orange;
+}

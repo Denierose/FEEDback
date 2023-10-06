@@ -1,0 +1,36 @@
+.feedBackCard {
+  max-width: 200px;
+}
+
+.feedBackCardImage {
+  height: 150px;
+  width: 100%;
+  max-width: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.feedBackCardTitle {
+  font-size: 18px;
+}
+
+.feedBackCardRating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: orange;
+}
+
+
+
+.feedBackCardStatus {
+  color: forestgreen  ;
+  font-size: 12px;
+  font-weight: bolder;
+}
+
+.feedBackCardRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}

@@ -1,0 +1,72 @@
+.UserPostPage {
+  display: flex;
+}
+
+.UserPostImage {
+  width: 100%;
+  max-width: 50vw;
+  height: 100vh;
+  object-fit: cover;
+  border-radius: 12px 0 0 12px;
+}
+
+
+
+.UserPostContent {
+  width: 100%;
+}
+
+.UserPostDetails {
+  padding: 20px;
+}
+
+.UserPostContent p {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.UserPostRating {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.UserPostCommentInput {
+  display: flex;
+  gap: 8px;
+  color: gray;
+  background-color: #FAFAFA;
+  align-items: center;
+  margin: 20px;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.UserPostContent .header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.UserPostContent .buttonContainer {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.CommentSection {
+  display: flex;
+  flex-direction: column-reverse;
+}
+@media screen and (max-width: 800px) {
+  .UserPostPage {
+    flex-direction: column-reverse;
+  }
+
+  .UserPostImage  {
+    border-radius: 12px;
+    max-width: 100vw;
+    max-height: 50vh;
+  }
+
+}

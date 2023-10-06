@@ -1,0 +1,33 @@
+.btn {
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: 8px;
+  gap: 3px;
+  border-radius: 3px;
+  font-weight: 600;
+  transition: 0.5s;
+}
+
+.btn.primary, .outline-primary:hover {
+  background: #ff8400;
+  color: white;
+}
+
+.btn.primary:hover{
+  opacity: 90%;
+}
+.outline-primary {
+  border: 2px solid #ff8400;
+  color: #ff8400;
+}
+
+
+.rounded-md {
+  border-radius: 10px;
+}
+.rounded-full {
+  border-radius: 100%;
+}

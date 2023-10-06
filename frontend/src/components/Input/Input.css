@@ -1,0 +1,14 @@
+input {
+  width: 100%;
+  border: none;
+  background-color: transparent;
+}
+
+input [type="text"] {
+  width: 100%;
+  outline: none;
+}
+
+input:focus {
+  outline: none;
+}

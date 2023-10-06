@@ -1,0 +1,52 @@
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 12px 0;
+}
+
+.navBar .logo {
+  width: 100%;
+  padding-left: 12px;
+  font-size: 20px;
+  text-decoration: none;
+}
+.navBar .logo-icon {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  outline: 2px solid #ff8400; 
+  outline-offset: 2px;
+  background-color: #ff8400;
+  border-radius: 3px;
+  padding: 8px 12px;
+  color: white;
+  font-size: 15px;
+}
+
+
+
+.navBar .settings {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 12px;
+  gap: 8px;
+}
+.navBar .settings .profile-pic {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+}
+
+@media screen and (max-width: 600px) {
+  .navBar .searchBar, .navBar .logo-icon p {
+    display: none;
+  }
+  .navBar .logo {
+    width: fit-content;
+  }
+}
