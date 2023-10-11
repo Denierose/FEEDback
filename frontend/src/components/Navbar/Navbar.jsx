@@ -40,7 +40,6 @@ const Navbar = ({ openLoginModal, openRegisterModal }) => {
       </Link>
       <SearchBar/>
       <div className="settings">
-      <IoSettingsOutline size={18}/>
       {
         authUser ?
         <>

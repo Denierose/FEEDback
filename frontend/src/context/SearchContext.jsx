@@ -66,7 +66,7 @@ export const SearchProvider = ({ children }) => {
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-  }, [ratingFilter, searchQuery, sortOrder, typeFilter]); // Include typeFilter in the dependency array
+  }, [ratingFilter, searchQuery, sortOrder, typeFilter]); 
 
   const handleRatingFilterChange = (e) => {
     setRatingFilter(e.target.value);

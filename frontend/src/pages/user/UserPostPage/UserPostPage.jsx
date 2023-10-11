@@ -18,6 +18,8 @@ const UserPostPage = () => {
   const [rating, setRating] = useState(0)
   const [comments, setComments] = useState([]);
   const [commentInput, setCommentInput] = useState('');
+  const [selectedComment, setSelectedComment] = useState(null);
+  const [isUpdateModalOpen, setUpdateModalOpen] = useState(false);
 
   useEffect(() => {
     axios
@@ -49,7 +51,7 @@ const UserPostPage = () => {
     return () => {
       listen();
     };
-  }, [id, comments, authUser, userInfo]);
+  }, [id, comments, authUser, userInfo, reviewData]);
 
   const handleCommentSubmit = async () => {
     if (authUser) {
@@ -71,6 +73,7 @@ const UserPostPage = () => {
       alert("You need to login first!");
     }
   };
+  
   const handleRating = (rate) => {
     setRating(rate)
   }
@@ -97,8 +100,31 @@ const UserPostPage = () => {
       alert("You need to login first!");
     }
   }
+  const handleCommentUpdate = (comment) => {
+    setSelectedComment(comment);
+    setUpdateModalOpen(true);
+  };
 
- 
+  const closeUpdateModal = () => {
+    setSelectedComment(null);
+    setUpdateModalOpen(false);
+  };
+  const updateComment = async () => {
+    const fullname =  `${userInfo.firstName} ${userInfo.lastName}`;
+    if (authUser && selectedComment) {
+      try {
+        const response = await axios.put(`http://localhost:3001/review/updateComment/${id}`, {
+          user: fullname,
+          content: selectedComment.content,
+        });
+        if (response.data) {
+          setUpdateModalOpen(false);
+        }
+      } catch (error) {
+        console.error('Error updating comment:', error);
+      }
+    }
+  };
   return (
     <div className="PageContainer UserPostPage">
       {reviewData && (
@@ -138,18 +164,36 @@ const UserPostPage = () => {
               </div>
               <h1>Recent Comments:</h1>
               <div className="CommentSection">
-                {comments.map((comment) => (
+              {comments.map((comment) => (
+                <div key={comment._id}>
                   <CommentCard
-                    key={comment._id}
                     user={comment.user}
                     comment={comment.content}
                   />
-                ))}
+                 {comment.user === `${userInfo.firstName} ${userInfo.lastName}` ?
+                  <Button onClick={() => handleCommentUpdate(comment)}>Update Comment</Button> :
+                  null}
+                </div>
+              ))}
               </div>
             </div>
           </div>
           <img src={reviewData.imgUrl} className="UserPostImage" alt="FeedbackImage" /> 
         </>
+      )}
+       {isUpdateModalOpen && (
+        <div className="modal">
+          <div className="modal-content">
+            <h2>Update Comment</h2>
+            <input
+              placeholder="Update your comment"
+              value={selectedComment.content}
+              onChange={(e) => setSelectedComment({ ...selectedComment, content: e.target.value })}
+            />
+            <Button variant="primary" onClick={updateComment}>Update</Button>
+            <Button variant="secondary" onClick={closeUpdateModal}>Cancel</Button>
+          </div>
+        </div>
       )}
     </div>
   );

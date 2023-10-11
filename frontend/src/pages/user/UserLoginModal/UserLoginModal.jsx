@@ -61,9 +61,6 @@ const UserLoginModal = ({ visible, onClose }) => {
               <Button type="submit" variant="primary user-form-btn" size="full lg">
                 Sign in
               </Button>
-              <Button size="full lg" onClick={signInWithGoogle}>
-                Sign in with Google
-              </Button>
             </div>
           </Form>
         )}

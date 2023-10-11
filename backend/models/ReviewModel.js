@@ -17,6 +17,7 @@ const reviewSchema = new mongoose.Schema(
     status: {
         type: String,
         required: true,
+        default: "open"
     },
     type: {
         type: String,

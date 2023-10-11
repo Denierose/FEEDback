@@ -50,8 +50,9 @@ const UserHomePage = () => {
         <div className="filters">
           <select value={typeFilter} onChange={handleTypeFilterChange}>
             <option value="All">All Items</option>
-            <option value="Foods">Foods</option>
-            <option value="Beverages">Beverages</option>
+            <option value="Fast Food">Fast Food</option>
+            <option value="Restaurant">Restaurant</option>
+            <option value="Cafe">Cafe</option>
           </select>
           <select value={ratingFilter} onChange={handleRatingFilterChange}>
             <option value="All">All Rating</option>
